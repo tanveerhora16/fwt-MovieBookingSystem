@@ -1,0 +1,12 @@
+*************************Welcome To Movie Booking System*************************
+MBS Options 
+1. Adding Screen
+2. Adding Movie to Screen
+3. Design seating arrangement to screen
+4. Adding shows for movie
+5. Book ticket
+6. Cancel booking
+7. Show Availability
+8. Reports
+9. Exit
+Enter Your Choice
