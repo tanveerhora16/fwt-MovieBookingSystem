@@ -1,15 +1,20 @@
 package com.yash.mbs.domain;
 
-import java.time.Duration;
-
 public class Movie {
 
 	private int movieId;
 	private String title;
 	private String production;
-	private Duration duration;
-    
+	private String duration;
 	
+	
+	public Movie(int movieId, String title, String production, String duration) {
+		super();
+		this.movieId = movieId;
+		this.title = title;
+		this.production = production;
+		this.duration = duration;
+	}
 	public int getMovieId() {
 		return movieId;
 	}
@@ -28,12 +33,15 @@ public class Movie {
 	public void setProduction(String production) {
 		this.production = production;
 	}
-	public Duration getDuration() {
+	public String getDuration() {
 		return duration;
 	}
-	public void setDuration(Duration duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
+    
+	
+	
 	
 	
 }

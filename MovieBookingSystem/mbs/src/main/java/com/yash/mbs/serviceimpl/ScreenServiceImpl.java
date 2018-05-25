@@ -3,16 +3,28 @@ package com.yash.mbs.serviceimpl;
 import java.util.List;
 
 import com.yash.mbs.dao.ScreenDao;
+import com.yash.mbs.daoimpl.ScreenDaoImpl;
 import com.yash.mbs.domain.Movie;
 import com.yash.mbs.domain.Screen;
 import com.yash.mbs.exception.EmptyException;
+import com.yash.mbs.exception.ScreenAlreadyAvailableException;
 import com.yash.mbs.exception.ScreenLimitException;
 import com.yash.mbs.service.ScreenService;
+
 
 public class ScreenServiceImpl implements ScreenService {
 
 	private ScreenDao screenDao;
 	List<Screen> listOfScreens;
+	
+	public ScreenServiceImpl(ScreenDao screenDao) {
+		this.screenDao = screenDao;
+	}
+
+	public ScreenServiceImpl() {
+		this.screenDao = new ScreenDaoImpl();
+	}
+	
 
 	// public ScreenServiceImpl(ScreenDao screenDao) {
 	// this.screenDao = screenDao;
@@ -30,10 +42,23 @@ public class ScreenServiceImpl implements ScreenService {
 		if (screen.getScreenId() == 0) {
 			throw new EmptyException("Screen cannot be empty");
 		}
-		if (screenDao.list().size() >= 3) {
+		if (screenDao.getScreens().size() >= 3) {
+			
 			throw new ScreenLimitException("Can't add more than 3 screen");
 		}
-		affectedRows = screenDao.addScreen(screen);
+		
+		if (screenDao.getScreens().size() <= 3) {
+			List<Screen> listOfScreens=screenDao.getScreens();
+			for (Screen screenTest : listOfScreens) {
+				if(screenTest.getScreenName().equalsIgnoreCase(screen.getScreenName())){
+					throw new ScreenAlreadyAvailableException("Screen name already exist. Screen name should be unique");
+				}
+			}
+			
+			affectedRows = screenDao.addScreen(screen);
+		}
+		
+		//affectedRows = screenDao.addScreen(screen);
 		System.out.println("AffectedRows" + affectedRows);
 
 		return affectedRows;

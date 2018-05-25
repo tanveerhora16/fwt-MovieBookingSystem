@@ -11,6 +11,17 @@ public class Screen {
 		this.screenName = name;
 	}
 
+	
+	
+	public Screen(int screenId, String screenName, Movie movie) {
+		super();
+		this.screenId = screenId;
+		this.screenName = screenName;
+		this.movie = movie;
+	}
+
+
+
 	public Screen() {
 		// TODO Auto-generated constructor stub
 	}

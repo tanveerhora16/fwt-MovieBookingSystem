@@ -8,6 +8,6 @@ public interface ScreenDao {
 
 	int addScreen(Screen screen);
 
-	List<Screen> list();
+	List<Screen> getScreens();
 
 }

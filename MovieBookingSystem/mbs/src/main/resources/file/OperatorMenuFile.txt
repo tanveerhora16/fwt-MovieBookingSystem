@@ -9,4 +9,3 @@ MBS Options
 7. Show Availability
 8. Reports
 9. Exit
-Enter Your Choice
