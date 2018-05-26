@@ -1,6 +1,7 @@
 package com.yash.mbs.serviceimpl;
 
 import com.yash.mbs.dao.MovieDao;
+import com.yash.mbs.daoimpl.MovieDaoImpl;
 import com.yash.mbs.domain.Movie;
 import com.yash.mbs.exception.EmptyException;
 import com.yash.mbs.service.MovieService;
@@ -14,9 +15,10 @@ public class MovieServiceImpl implements MovieService {
 		this.movieDao = movieDao;
 	}
 
-	public MovieServiceImpl() {
-		
-	}
+ public MovieServiceImpl() {
+	this.movieDao = new MovieDaoImpl();
+	
+}
 
 	@Override
 	public boolean addMovie(Movie movie, String screenName) {
@@ -27,7 +29,7 @@ public class MovieServiceImpl implements MovieService {
 		if (screenName.isEmpty()) {
 			throw new EmptyException("Screen name can not be empty.");
 		}
-		
+		isAdd = movieDao.insertMovie(movie,screenName);
 		return isAdd;
 	}
 

@@ -15,6 +15,10 @@ public class Movie {
 		this.production = production;
 		this.duration = duration;
 	}
+	
+	public Movie(){
+		
+	}
 	public int getMovieId() {
 		return movieId;
 	}

@@ -1,5 +1,8 @@
 package com.yash.mbs.serviceimpl;
 
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -44,10 +47,18 @@ public class MovieServiceImplTest {
 	}
 
 	@Test(expected = EmptyException.class)
-	public void addMovie_GivenScreenNameIsEmptyAndMovieObjectIsCorrect_ThrowEmptyFieldException() {
-		movie = new Movie(112, "1:50:00", "abc", "John Abrahim");
+	public void addMovie_shouldThrowEmptyException_WhenScreenNameIsEmpty() {
+		movie = new Movie(112, "raazi", "abc", "02:00:00");
 		String screenName = "";
 		movieService.addMovie(movie, screenName);
+	}
+	
+	@Test
+	public void addMovie_shouldRteurnTrue_WhenMovieAndScreenObjectIsGiven() {
+		 movie = new Movie(101, "deadpool", "balaji", "03:00:00");
+		String screenName = "Screen 1";
+		when(movieDao.insertMovie(movie, screenName)).thenReturn(true);
+		assertTrue(movieService.addMovie(movie, screenName));
 	}
 
 }

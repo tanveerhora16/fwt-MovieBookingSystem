@@ -2,13 +2,13 @@ package com.yash.mbs.main;
 
 import java.util.Scanner;
 
+import com.yash.mbs.domain.Movie;
 import com.yash.mbs.domain.Screen;
 import com.yash.mbs.service.MovieService;
 import com.yash.mbs.service.ScreenService;
 import com.yash.mbs.serviceimpl.MovieServiceImpl;
 import com.yash.mbs.serviceimpl.ScreenServiceImpl;
 import com.yash.mbs.util.OperatorMenuOptions;
-
 
 /**
  * 
@@ -40,7 +40,7 @@ public class MovieBookingSystem {
 				Screen screen = new Screen(id++, name);
 				screenService.addScreen(screen);
 				break;
-			/*case 2:
+			case 2:
 				Movie movie = new Movie();
 				inputScanner.nextLine();
 				System.out.println("Enter Screen Name ");
@@ -51,24 +51,19 @@ public class MovieBookingSystem {
 				movie.setDuration(inputScanner.nextLine());
 				System.out.println("Enter Production name ");
 				movie.setProduction(inputScanner.nextLine());
-				System.out.println("Enter Actor");
-				movie.setActors(inputScanner.nextLine());
-				movieService.addMovie(screenName, movie);
-				break;*/
-				 
+
+				movieService.addMovie(movie, screenName);
+				break;
+
 			}
 			System.out.println("Do you want to Continue (Y/N)");
 			continueChoice = inputScanner.next();
 		} while (continueChoice.equalsIgnoreCase("y"));
 
 	}
-		
-	
 
-	
 	public void showMenuOptionsToOperator() {
 
-		
 	}
 
 }
