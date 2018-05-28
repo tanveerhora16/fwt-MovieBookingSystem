@@ -35,7 +35,7 @@ public class ScreenServiceImplTest {
 
 	@Before
 	public void init() {
-		// screenService = new ScreenServiceImpl(screenDao);
+		
 		MockitoAnnotations.initMocks(this);
 	}
 

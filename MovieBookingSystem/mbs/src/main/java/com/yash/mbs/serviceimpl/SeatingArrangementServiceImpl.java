@@ -11,5 +11,4 @@ public class SeatingArrangementServiceImpl implements SeatingArrangementService 
 			Integer numberOfSeatsInFirstRow){
 				return null;}
 	
-
 }

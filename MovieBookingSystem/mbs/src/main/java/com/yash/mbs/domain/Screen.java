@@ -1,14 +1,27 @@
 package com.yash.mbs.domain;
 
+import java.util.List;
+
+;
+
 public class Screen {
 
 	private int screenId;
 	private String screenName;
 	Movie movie;
+	private List<Show> show;
 
 	public Screen(int i, String name) {
 		this.screenId = i;
 		this.screenName = name;
+	}
+
+	public List<Show> getShow() {
+		return show;
+	}
+
+	public void setShow(List<Show> show) {
+		this.show = show;
 	}
 
 	public Screen(int screenId, String screenName, Movie movie) {

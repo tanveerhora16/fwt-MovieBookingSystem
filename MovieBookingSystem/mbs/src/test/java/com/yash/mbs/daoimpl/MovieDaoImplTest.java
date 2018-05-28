@@ -14,7 +14,7 @@ public class MovieDaoImplTest {
 	@Test
 	public void insert_GivenScreenNameAndMovieObject_ShouldReturnTrueIfAdded() {
 		String screenName = "Screen 1";
-		Movie movie = new Movie(101, "deadpool", "balaji", "03:00:00");
+		Movie movie = new Movie(101, "deadpool", "balaji", "03:00:00","tom");
 		assertTrue(movieDao.insertMovie(movie, screenName));
 	}
 

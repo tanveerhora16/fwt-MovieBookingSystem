@@ -48,14 +48,14 @@ public class MovieServiceImplTest {
 
 	@Test(expected = EmptyException.class)
 	public void addMovie_shouldThrowEmptyException_WhenScreenNameIsEmpty() {
-		movie = new Movie(112, "raazi", "abc", "02:00:00");
+		movie = new Movie(112, "raazi", "abc", "02:00:00","alia bhatt");
 		String screenName = "";
 		movieService.addMovie(movie, screenName);
 	}
 	
 	@Test
 	public void addMovie_shouldRteurnTrue_WhenMovieAndScreenObjectIsGiven() {
-		 movie = new Movie(101, "deadpool", "balaji", "03:00:00");
+		 movie = new Movie(101, "deadpool", "balaji", "03:00:00","tom");
 		String screenName = "Screen 1";
 		when(movieDao.insertMovie(movie, screenName)).thenReturn(true);
 		assertTrue(movieService.addMovie(movie, screenName));

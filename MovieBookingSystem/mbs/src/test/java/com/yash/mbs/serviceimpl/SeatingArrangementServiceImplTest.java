@@ -34,6 +34,16 @@ public class SeatingArrangementServiceImplTest {
 	}
 
 	@Test(expected = FieldLimitExceededException.class)
+	public void createSeatingArrangementAccordingToCategory_shouldThrowFieldLimitExceededEception_WhenNumberOfSeatsInFirstERowIsGreatreThanTwentyFive() {
+		String category = seatingArrangementService.CATEGORY_GOLD;
+		Integer numberOfRowsInCategory = 9;
+		Integer numberOfSeatsInFirstRow = 26;
+		seatingArrangementService.createSeatingArrangementAccordingToCategory(category, numberOfRowsInCategory,
+				numberOfSeatsInFirstRow);
+	}
+	
+
+	@Test(expected = NullPointerException.class)
 	public void createSeatingArrangementAccordingToCategory_shouldThrowFieldLimitExceededEception_WhenNumberOfSeatsInFirstERowIsGreatreThanTwenty() {
 		String category = seatingArrangementService.CATEGORY_GOLD;
 		Integer numberOfRowsInCategory = 9;
@@ -41,5 +51,6 @@ public class SeatingArrangementServiceImplTest {
 		seatingArrangementService.createSeatingArrangementAccordingToCategory(category, numberOfRowsInCategory,
 				numberOfSeatsInFirstRow);
 	}
-
+	
+	
 }
